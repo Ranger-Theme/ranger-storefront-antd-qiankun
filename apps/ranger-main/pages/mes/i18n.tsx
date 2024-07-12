@@ -21,6 +21,7 @@ const I18n = () => {
 
   return (
     <div>
+      <p>I18n Page</p>
       <div id="ocloud__i18n" />
     </div>
   )

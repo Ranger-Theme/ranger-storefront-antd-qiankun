@@ -1,23 +1,17 @@
 import styled from '@emotion/styled'
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.div`
   display: flex;
-  padding: 12px 24px;
+  padding: 0 15px;
   justify-content: space-between;
   align-items: center;
-  background-color: #30b8bd;
 `
 
 export const StyledNavigation = styled.div`
   display: grid;
   grid-auto-flow: column;
-  grid-column-gap: 20px;
   justify-content: flex-start;
   align-content: center;
-`
-
-export const StyledLogo = styled.div`
-  width: 225px;
 `
 
 export const StyledMenus = styled.ul`
@@ -32,12 +26,24 @@ export const StyledMenus = styled.ul`
     list-style-type: none;
 
     > a {
-      color: #fff;
+      color: rgba(0, 0, 0, 0.88);
       text-decoration: none;
 
       &:hover {
         color: orange;
       }
     }
+  }
+`
+
+export const StyledTools = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+
+  .label {
+    cursor: pointer;
   }
 `

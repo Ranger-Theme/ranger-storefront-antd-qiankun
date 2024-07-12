@@ -21,6 +21,7 @@ const SEO = () => {
 
   return (
     <div>
+      <p>SEO Page</p>
       <div id="ocloud__seo" />
     </div>
   )

@@ -1,26 +1,29 @@
-import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs'
+import { ThemeProvider } from '@emotion/react'
+import { ConfigProvider } from 'antd'
+
+import AppShell from '@/components/AppShell'
+import AppRoutes from '@/components/AppRoutes'
 
 const App = () => {
-  const [count, setCount] = useState<number>(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((value) => value + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>
+      <ThemeProvider theme={{}}>
+        <ConfigProvider>
+          <BrowserRouter>
+            <AppShell>
+              <AppRoutes />
+            </AppShell>
+            <div className="qiankun">
+              <div id="ocloud__cms" />
+              <div id="ocloud__i18n" />
+              <div id="ocloud__seo" />
+            </div>
+          </BrowserRouter>
+        </ConfigProvider>
+      </ThemeProvider>
+    </StyleProvider>
   )
 }
 
