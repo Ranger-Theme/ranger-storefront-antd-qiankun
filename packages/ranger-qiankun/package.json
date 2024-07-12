@@ -21,6 +21,8 @@
     "clean": "rm -rf dist lib"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "qiankun": "^2.10.16",
     "tsup": "^8.0.1"
   },
   "devDependencies": {

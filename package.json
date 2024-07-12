@@ -30,7 +30,8 @@
     "@ranger-theme/ts-config": "^0.1.0",
     "eslint": "^8.2.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3"
+    "lint-staged": "^13.0.3",
+    "turbo": "^2.0.3"
   },
   "resolutions": {
     "postcss": "^8.4.12"

@@ -11,10 +11,13 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@ranger-theme/vite-config": "^0.3.0",
+    "@ranger-theme/admin": "workspace:^",
+    "@ranger-theme/qiankun": "workspace:^",
+    "@ranger-theme/vite-config": "^0.4.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
     "@ranger-theme/eslint-config": "^0.3.0",

@@ -1,30 +1,31 @@
-import fs from "node:fs";
-import path from "node:path";
-import { defineConfig } from "vite";
-import type { ConfigEnv } from "vite";
+import path from 'node:path'
+import { defineConfig } from 'vite'
+import type { ConfigEnv } from 'vite'
 
-import { baseConfig } from "@ranger-theme/vite-config";
+import { baseConfig } from '@ranger-theme/vite-config'
 
-import pkg from "./package.json";
+import pkg from './package.json'
 
 const viteConfig: any = ({ mode }: ConfigEnv) => {
-  const defaultConfig: any = baseConfig({
+  const defaultConfig = baseConfig({
     mode,
     pkg,
     https: false,
-    entry: path.resolve(__dirname, "bootstrap/main.tsx"),
-    outDir: "build",
-  });
+    port: 3000,
+    outDir: 'build',
+    entry: path.resolve(__dirname, 'bootstrap/main.tsx')
+  })
 
   return defineConfig({
     ...defaultConfig,
+    base: '/',
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./"),
-        "~": path.resolve(__dirname, "./"),
-      },
-    },
-  });
-};
+        '@': path.resolve(__dirname, './'),
+        '~': path.resolve(__dirname, './')
+      }
+    }
+  })
+}
 
-export default viteConfig;
+export default viteConfig
