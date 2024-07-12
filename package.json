@@ -1,16 +1,39 @@
 {
   "name": "ranger-storefront-antd-qiankun",
   "private": true,
+  "config": {
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  },
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "pnpm run clean:turbo && pnpm run clean:node_modules",
+    "clean:turbo": "find . -name '.turbo' -type d -prune -exec rm -rf '{}' +",
+    "clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "husky:prepare": "husky install"
+  },
+  "dependencies": {
+    "only-allow": "^1.2.1"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "turbo": "^2.0.6",
-    "typescript": "^5.4.5"
+    "@changesets/cli": "^2.26.2",
+    "@ranger-theme/branchlint-config": "^0.1.0",
+    "@ranger-theme/commitizen-config": "^0.2.0",
+    "@ranger-theme/commitlint-config": "^0.4.0",
+    "@ranger-theme/eslint-config": "^0.3.0",
+    "@ranger-theme/prettier-config": "^0.2.0",
+    "@ranger-theme/stylelint-config": "^0.3.0",
+    "@ranger-theme/ts-config": "^0.1.0",
+    "eslint": "^8.2.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3"
+  },
+  "resolutions": {
+    "postcss": "^8.4.12"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {
