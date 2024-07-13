@@ -12,24 +12,24 @@ export const bootstrap = async () => {
       props: {
         namespace: 'cms' // 主应用向微应用传递参数
       }
-    },
-    {
-      name: 'ocloud__i18n',
-      entry: isProd ? '/ocloud/i18n/' : 'http://127.0.0.1:3002',
-      container: '#ocloud__i18n',
-      activeRule: '/MES/I18N',
-      props: {
-        namespace: 'i18n'
-      }
-    },
-    {
-      name: 'ocloud__seo',
-      entry: isProd ? '/ocloud/seo/' : 'http://127.0.0.1:3003',
-      container: '#ocloud__semo',
-      activeRule: '/MES/SEO',
-      props: {
-        namespace: 'seo'
-      }
     }
+    // {
+    //   name: 'ocloud__i18n',
+    //   entry: isProd ? '/ocloud/i18n/' : 'http://127.0.0.1:3002',
+    //   container: '#ocloud__i18n',
+    //   activeRule: '/MES/I18N',
+    //   props: {
+    //     namespace: 'i18n'
+    //   }
+    // },
+    // {
+    //   name: 'ocloud__seo',
+    //   entry: isProd ? '/ocloud/seo/' : 'http://127.0.0.1:3003',
+    //   container: '#ocloud__semo',
+    //   activeRule: '/MES/SEO',
+    //   props: {
+    //     namespace: 'seo'
+    //   }
+    // }
   ])
 }

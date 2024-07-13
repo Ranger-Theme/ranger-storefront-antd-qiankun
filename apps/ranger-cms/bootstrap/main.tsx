@@ -1,3 +1,4 @@
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 import 'antd/dist/reset.css'
@@ -7,7 +8,11 @@ import App from './App'
 const renderApp = (container?: HTMLElement, namespace?: string) => {
   // 如果是在主应用的环境下就挂载主应用的节点，否则挂载到本地
   const rootElement: HTMLElement = container || (document.getElementById('cms') as HTMLElement)
-  createRoot(rootElement).render(<App namespace={namespace} />)
+  createRoot(rootElement).render(
+    <StrictMode>
+      <App namespace={namespace} />
+    </StrictMode>
+  )
 }
 
 const initQianKun = () => {

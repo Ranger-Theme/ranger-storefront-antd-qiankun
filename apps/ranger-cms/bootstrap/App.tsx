@@ -18,8 +18,8 @@ interface AppProps {
 }
 
 const App: FC<AppProps> = ({ namespace = 'cms' }) => {
-  const devModule: boolean = import.meta.env.REACT_DEV_MODULE
-  const appName: string = import.meta.env.REACT_APP_NAME
+  const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
+  const appName: string = import.meta.env.REACT_APP_QIANKUN_NAME
   const container = createContainer(devModule, appName)
   const cache = createCache(devModule, container)
   const emotionCache = createEmotionCache()
