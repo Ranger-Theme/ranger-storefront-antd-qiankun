@@ -1,5 +1,7 @@
 import { registerMicroApps } from '@ranger-theme/qiankun'
 
+import { initialState } from '@/actions'
+
 export const bootstrap = async () => {
   const isProd: boolean = import.meta.env.PROD
 
@@ -10,7 +12,8 @@ export const bootstrap = async () => {
       container: '#ocloud__cms', // 微应用挂载的节点
       activeRule: '/MES/CMS', // 当访问路由为 /MES/CMS/ 时加载微应用
       props: {
-        namespace: 'cms' // 主应用向微应用传递参数
+        namespace: 'cms', // 主应用向微应用传递参数
+        state: initialState
       }
     }
     // {

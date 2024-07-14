@@ -1,13 +1,10 @@
-/*
- * @Copyright: @ Silk Software Corp. All Rights Reserved
- */
-import { defineConfig } from "tsup";
-import type { Options } from "tsup";
+import { defineConfig } from 'tsup'
+import type { Options } from 'tsup'
 
 export default defineConfig((options: Options) => {
   return {
-    entry: ["./src/index.ts"],
-    outDir: "dist",
+    entry: ['./src/index.ts'],
+    outDir: 'dist',
     clean: true,
     dts: true,
     splitting: false,
@@ -15,7 +12,7 @@ export default defineConfig((options: Options) => {
     watch: options.watch,
     sourcemap: !!options.watch,
     minify: !options.watch,
-    format: ["esm", "cjs"],
-    external: [],
-  };
-});
+    format: ['esm', 'cjs'],
+    external: ['react']
+  }
+})

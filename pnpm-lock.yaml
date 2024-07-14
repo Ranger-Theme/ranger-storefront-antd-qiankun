@@ -240,6 +240,9 @@ importers:
       qiankun:
         specifier: ^2.10.16
         version: 2.10.16
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
       tsup:
         specifier: ^8.0.1
         version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2)(typescript@5.5.3)
@@ -253,6 +256,9 @@ importers:
       '@types/node':
         specifier: ^20.10.6
         version: 20.14.10
+      '@types/react':
+        specifier: ^18.2.56
+        version: 18.3.3
 
 packages:
 

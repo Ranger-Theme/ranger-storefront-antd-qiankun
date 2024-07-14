@@ -7,7 +7,7 @@ import {
 import { CacheProvider, ThemeProvider } from '@emotion/react'
 import { ConfigProvider } from 'antd'
 import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
-import { createCache, createContainer } from '@ranger-theme/qiankun'
+import { QiankunProvider, createCache, createContainer } from '@ranger-theme/qiankun'
 import type { FC } from 'react'
 
 import AppShell from '@/components/AppShell'
@@ -15,9 +15,10 @@ import AppRoutes from '@/components/AppRoutes'
 
 interface AppProps {
   namespace?: string
+  state?: any
 }
 
-const App: FC<AppProps> = ({ namespace = 'cms' }) => {
+const App: FC<AppProps> = ({ namespace = 'cms', state = {} }) => {
   const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
   const appName: string = import.meta.env.REACT_APP_QIANKUN_NAME
   const container = createContainer(devModule, appName)
@@ -41,11 +42,13 @@ const App: FC<AppProps> = ({ namespace = 'cms' }) => {
             iconPrefixCls={namespace}
             getPopupContainer={getPopupContainer}
           >
-            <BrowserRouter basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/MES/CMS' : '/'}>
-              <AppShell>
-                <AppRoutes />
-              </AppShell>
-            </BrowserRouter>
+            <QiankunProvider state={state}>
+              <BrowserRouter basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/MES/CMS' : '/'}>
+                <AppShell>
+                  <AppRoutes />
+                </AppShell>
+              </BrowserRouter>
+            </QiankunProvider>
           </ConfigProvider>
         </ThemeProvider>
       </StyleProvider>

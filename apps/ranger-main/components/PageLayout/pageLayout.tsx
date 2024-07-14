@@ -17,9 +17,13 @@ const PageLayout = () => {
   useEffect(() => {
     qiankunActions.onGlobalStateChange((state, prevState) => {
       console.info('主应用观察者: state改变前的值为 ', prevState)
-      console.info('主应用观察者: 登录状态发生改变, 改变后的state的值为 ', state)
+      console.info('主应用观察者: state改变后的值为 ', state)
       setCollapsed(state.collapsed)
     })
+
+    return () => {
+      qiankunActions.offGlobalStateChange()
+    }
   }, [])
 
   return (
