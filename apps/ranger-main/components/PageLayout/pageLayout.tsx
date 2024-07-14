@@ -1,13 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { Button, Layout } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
 
+import { initialState, qiankunActions } from '@/actions'
 import Header from '@/components/Header'
 import { StyledMain, StyledLogo } from './styled'
 
 const PageLayout = () => {
-  const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [collapsed, setCollapsed] = useState<boolean>(initialState.collapsed)
+
+  const handleOnClick = () => {
+    qiankunActions.setGlobalState({ collapsed: !collapsed })
+  }
+
+  useEffect(() => {
+    qiankunActions.onGlobalStateChange((state, prevState) => {
+      console.info('主应用观察者: state改变前的值为 ', prevState)
+      console.info('主应用观察者: 登录状态发生改变, 改变后的state的值为 ', state)
+      setCollapsed(state.collapsed)
+    })
+  }, [])
 
   return (
     <Layout>
@@ -22,7 +35,7 @@ const PageLayout = () => {
           <Button
             type="text"
             icon={collapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
-            onClick={() => setCollapsed(!collapsed)}
+            onClick={handleOnClick}
             style={{
               width: 64,
               height: 64

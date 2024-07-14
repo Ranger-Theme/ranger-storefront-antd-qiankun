@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import qiankun from 'vite-plugin-qiankun'
 import externalGlobals from 'rollup-plugin-external-globals'
 import { baseConfig } from '@ranger-theme/vite-config'
@@ -10,6 +10,7 @@ import pkg from './package.json'
 const externalPlugin: any = externalGlobals
 
 const viteConfig: any = ({ mode }: ConfigEnv) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd(), 'REACT_') }
   // 微应用名字, 与主应用注册的微应用名字保持一致
   const appName: string = process.env.REACT_APP_QIANKUN_NAME || ''
   // useDevMode开启时与热更新插件冲突, 使用变量切换

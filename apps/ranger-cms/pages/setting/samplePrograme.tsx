@@ -1,9 +1,9 @@
-const SEO = () => {
+const SamplePrograme = () => {
   return (
     <div>
-      <p>SEO Page</p>
+      <p>Sample Programe Page</p>
     </div>
   )
 }
 
-export default SEO
+export default SamplePrograme

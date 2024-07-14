@@ -1,9 +1,9 @@
-const CMS = () => {
+const QualityPlan = () => {
   return (
     <div>
-      <p>CMS Page</p>
+      <p>Quality Plan Page</p>
     </div>
   )
 }
 
-export default CMS
+export default QualityPlan

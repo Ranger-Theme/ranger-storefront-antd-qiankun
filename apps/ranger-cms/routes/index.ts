@@ -10,7 +10,7 @@ interface Routes {
 export const routes: Routes[] = [
   {
     path: '/',
-    component: lazy(() => import('@/components/HomePage')),
+    component: lazy(() => import('@/components/PageLayout')),
     children: [
       {
         path: '/',
@@ -30,6 +30,21 @@ export const routes: Routes[] = [
       {
         path: '/setting/samplePrograme',
         component: lazy(() => import('@/pages/setting/samplePrograme')),
+        children: []
+      },
+      {
+        path: '/setting/complaint/records',
+        component: lazy(() => import('@/pages/setting/complaint/records')),
+        children: []
+      },
+      {
+        path: '/setting/complaint/handles',
+        component: lazy(() => import('@/pages/setting/complaint/handles')),
+        children: []
+      },
+      {
+        path: '*',
+        component: lazy(() => import('@/pages/not-found')),
         children: []
       }
     ]

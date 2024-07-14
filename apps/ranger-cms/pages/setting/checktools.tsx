@@ -1,9 +1,9 @@
-const I18n = () => {
+const CheckTools = () => {
   return (
     <div>
-      <p>I18n Page</p>
+      <p>Check Tools Page</p>
     </div>
   )
 }
 
-export default I18n
+export default CheckTools
