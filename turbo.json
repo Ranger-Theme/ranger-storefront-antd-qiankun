@@ -1,14 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
+    "build:qiankun": {
+      "dependsOn": ["^build:qiankun"],
       "outputs": ["dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
     },
-    "dev": {
+    "dev:qiankun": {
       "cache": false,
       "persistent": true
     }

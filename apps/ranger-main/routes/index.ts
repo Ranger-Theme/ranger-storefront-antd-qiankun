@@ -10,7 +10,7 @@ interface Routes {
 export const routes: Routes[] = [
   {
     path: '/',
-    component: lazy(() => import('@/components/HomePage')),
+    component: lazy(() => import('@/components/PageLayout')),
     children: [
       {
         path: '/',

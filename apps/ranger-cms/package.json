@@ -4,10 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "cross-env DEV_MODULE=true vite",
-    "dev:qiankun": "cross-env DEV_MODULE=false vite",
-    "build": "tsc && cross-env DEV_MODULE=true vite build",
-    "build:qiankun": "tsc && cross-env DEV_MODULE=false vite build",
+    "dev": "cross-env DEV_MODULE=false vite",
+    "dev:qiankun": "cross-env DEV_MODULE=true vite",
+    "build": "tsc && cross-env DEV_MODULE=false vite build",
+    "build:qiankun": "tsc && cross-env DEV_MODULE=true vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "clean": "rm -rf dist"
