@@ -7,8 +7,8 @@
     }
   },
   "scripts": {
-    "build": "turbo build:qiankun",
-    "dev": "turbo dev:qiankun",
+    "build:qiankun": "turbo build:qiankun",
+    "dev:qiankun": "turbo dev:qiankun",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "pnpm run clean:turbo && pnpm run clean:node_modules",

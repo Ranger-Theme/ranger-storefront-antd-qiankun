@@ -7,29 +7,32 @@ import Header from '@/components/Header'
 import { StyledMain, StyledLogo } from './styled'
 
 const HomePage = () => {
+  const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
   const [collapsed, setCollapsed] = useState<boolean>(false)
 
   return (
     <Layout>
-      <Layout.Header style={{ padding: 0, background: '#fff' }}>
-        <Header>
-          <StyledLogo collapsed={collapsed}>
-            <Link to="/">
-              <span className="logo" />
-              <span>Qiankun</span>
-            </Link>
-          </StyledLogo>
-          <Button
-            type="text"
-            icon={collapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              width: 64,
-              height: 64
-            }}
-          />
-        </Header>
-      </Layout.Header>
+      {!devModule && (
+        <Layout.Header style={{ padding: 0, background: '#fff' }}>
+          <Header>
+            <StyledLogo collapsed={collapsed}>
+              <Link to="/">
+                <span className="logo" />
+                <span>Qiankun</span>
+              </Link>
+            </StyledLogo>
+            <Button
+              type="text"
+              icon={collapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                width: 64,
+                height: 64
+              }}
+            />
+          </Header>
+        </Layout.Header>
+      )}
       <Layout>
         <Layout.Sider
           trigger={null}

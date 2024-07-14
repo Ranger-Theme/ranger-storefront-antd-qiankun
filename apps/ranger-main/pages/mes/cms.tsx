@@ -21,7 +21,6 @@ const CMS = () => {
 
   return (
     <div>
-      <p>CMS Page</p>
       <div id="ocloud__cms" />
     </div>
   )

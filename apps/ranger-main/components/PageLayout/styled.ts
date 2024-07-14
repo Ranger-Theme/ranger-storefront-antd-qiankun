@@ -2,9 +2,7 @@ import styled from '@emotion/styled'
 
 export const StyledMain = styled.div`
   width: 100%;
-  height: calc(100vh - 69px);
-  margin-top: 5px;
-  padding: 20px;
+  height: calc(100vh - 64px);
   background-color: #fff;
 `
 

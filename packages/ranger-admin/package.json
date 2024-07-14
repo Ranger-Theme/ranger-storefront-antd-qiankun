@@ -18,6 +18,8 @@
     "prebuild": "pnpm clean",
     "dev": "tsup --watch",
     "build": "tsup",
+    "dev:qiankun": "tsup --watch",
+    "build:qiankun": "tsup",
     "clean": "rm -rf dist lib"
   },
   "dependencies": {
