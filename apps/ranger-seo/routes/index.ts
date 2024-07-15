@@ -18,28 +18,18 @@ export const routes: Routes[] = [
         children: []
       },
       {
-        path: '/setting/qualityPlan',
-        component: lazy(() => import('@/pages/setting/qualityPlan')),
+        path: '/base/location',
+        component: lazy(() => import('@/pages/base/location')),
         children: []
       },
       {
-        path: '/setting/checktools',
-        component: lazy(() => import('@/pages/setting/checktools')),
+        path: '/stock/local',
+        component: lazy(() => import('@/pages/stock/local')),
         children: []
       },
       {
-        path: '/setting/samplePrograme',
-        component: lazy(() => import('@/pages/setting/samplePrograme')),
-        children: []
-      },
-      {
-        path: '/setting/complaint/records',
-        component: lazy(() => import('@/pages/setting/complaint/records')),
-        children: []
-      },
-      {
-        path: '/setting/complaint/handles',
-        component: lazy(() => import('@/pages/setting/complaint/handles')),
+        path: '/stock/inven',
+        component: lazy(() => import('@/pages/stock/inven')),
         children: []
       },
       {

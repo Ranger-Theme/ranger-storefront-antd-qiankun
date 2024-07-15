@@ -1,4 +1,4 @@
-function emptyAction(...args: any[]) {
+const emptyAction = (...args: any[]) => {
   console.warn('Current execute action is empty!')
   console.info(args)
 }

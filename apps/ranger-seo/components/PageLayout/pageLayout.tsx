@@ -2,6 +2,7 @@ import { useEffect, useState, lazy } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { Button, Layout, Menu, Watermark } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
+import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 import { useQiankunContext } from '@ranger-theme/qiankun'
 import type { MenuProps } from 'antd'
 
@@ -18,29 +19,29 @@ const PageLayout = () => {
 
   const sideMenu: MenuProps['items'] = [
     {
-      key: '/setting/qualityPlan',
+      key: '/base',
       label: <span>基础数据</span>,
       children: [
         {
-          key: '/setting/checktools/info',
+          key: '/base/location',
           label: (
-            <Link to="/setting/checktools/info">
+            <Link to="/base/location">
               <span>库存信息</span>
             </Link>
           )
         },
         {
-          key: '/setting/checktools/list',
+          key: '/stock/local',
           label: (
-            <Link to="/setting/checktools/list">
+            <Link to="/stock/local">
               <span>库存列表</span>
             </Link>
           )
         },
         {
-          key: '/setting/checktools/order',
+          key: '/stock/inven',
           label: (
-            <Link to="/setting/checktools/order">
+            <Link to="/stock/inven">
               <span>库存清单</span>
             </Link>
           )
@@ -48,29 +49,29 @@ const PageLayout = () => {
       ]
     },
     {
-      key: '/setting/checktools/1',
+      key: '/purchase',
       label: <span>收料管理</span>,
       children: [
         {
-          key: '/setting/checktools/11',
+          key: '/purchase/receive',
           label: (
-            <Link to="/setting/checktools/11">
+            <Link to="/purchase/receive">
               <span>仓库收料</span>
             </Link>
           )
         },
         {
-          key: '/setting/checktools/12',
+          key: '/purchase/reclist',
           label: (
-            <Link to="/setting/checktools/12">
+            <Link to="/purchase/reclist">
               <span>收料列表</span>
             </Link>
           )
         },
         {
-          key: '/setting/checktools/13',
+          key: '/purchase/abreclist',
           label: (
-            <Link to="/setting/checktools/13">
+            <Link to="/purchase/abreclist">
               <span>收录异常单</span>
             </Link>
           )
@@ -78,12 +79,18 @@ const PageLayout = () => {
       ]
     },
     {
-      key: '/setting/samplePrograme',
-      label: (
-        <Link to="/setting/samplePrograme">
-          <span>入口管理</span>
-        </Link>
-      )
+      key: '/purchase-manage',
+      label: <span>入库管理</span>,
+      children: [
+        {
+          key: '/purchase/instock',
+          label: (
+            <Link to="/purchase/instock">
+              <span>入库列表</span>
+            </Link>
+          )
+        }
+      ]
     },
     {
       key: '/setting/complaint',
@@ -93,7 +100,7 @@ const PageLayout = () => {
           key: '/setting/complaint/records',
           label: (
             <Link to="/setting/complaint/records">
-              <span>Records</span>
+              <span>待发货列表</span>
             </Link>
           )
         },
@@ -101,7 +108,23 @@ const PageLayout = () => {
           key: '/setting/complaint/handles',
           label: (
             <Link to="/setting/complaint/handles">
-              <span>Handles</span>
+              <span>出库日期明细</span>
+            </Link>
+          )
+        },
+        {
+          key: '/setting/complaint/handles',
+          label: (
+            <Link to="/setting/complaint/handles">
+              <span>任务列表</span>
+            </Link>
+          )
+        },
+        {
+          key: '/setting/complaint/handles',
+          label: (
+            <Link to="/setting/complaint/handles">
+              <span>退货列表</span>
             </Link>
           )
         }
@@ -109,11 +132,17 @@ const PageLayout = () => {
     },
     {
       key: '/setting/property',
-      label: (
-        <Link to="/setting/property">
-          <span>物权管理</span>
-        </Link>
-      )
+      label: <span>物权管理</span>,
+      children: [
+        {
+          key: '/setting/property',
+          label: (
+            <Link to="/setting/property">
+              <span>物权列表</span>
+            </Link>
+          )
+        }
+      ]
     },
     {
       key: '/setting/board',
@@ -140,15 +169,17 @@ const PageLayout = () => {
   ]
 
   useEffect(() => {
-    qiankunActions.onGlobalStateChange((state: any, preveState: any) => {
-      console.info('微应用观察者: state改变前的值为 ', preveState)
-      console.info('微应用观察者: state改变后的值为 ', state)
-      setCollapsed(state.collapsed)
-    })
+    if (qiankunWindow.__POWERED_BY_QIANKUN__) {
+      qiankunActions.onGlobalStateChange((state: any, preveState: any) => {
+        console.info('微应用观察者: state改变前的值为 ', preveState)
+        console.info('微应用观察者: state改变后的值为 ', state)
+        setCollapsed(state.collapsed)
+      })
+    }
   }, [])
 
   return (
-    <Watermark content="QMS微应用" rotate={-22} gap={[100, 100]} zIndex={30}>
+    <Watermark content="WMS微应用" rotate={-22} gap={[100, 100]} zIndex={30}>
       <Layout>
         {!devModule && (
           <Layout.Header style={{ padding: 0, background: '#fff' }}>

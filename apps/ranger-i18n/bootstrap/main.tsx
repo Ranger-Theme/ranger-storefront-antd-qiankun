@@ -7,7 +7,9 @@ import App from './App'
 
 const renderApp = (container?: HTMLElement, namespace?: string, state?: any) => {
   // 如果是在主应用的环境下就挂载主应用的节点，否则挂载到本地
-  const rootElement: HTMLElement = container || (document.getElementById('i18n') as HTMLElement)
+  const rootElement: HTMLElement = (
+    container ? container.querySelector('#i18n') : document.getElementById('i18n')
+  ) as HTMLElement
   createRoot(rootElement).render(<App namespace={namespace} state={state} />)
 }
 
