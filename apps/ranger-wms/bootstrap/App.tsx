@@ -18,7 +18,7 @@ interface AppProps {
   state?: any
 }
 
-const App: FC<AppProps> = ({ namespace = 'i18n', state = {} }) => {
+const App: FC<AppProps> = ({ namespace = 'seo', state = {} }) => {
   const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
   const appName: string = import.meta.env.REACT_APP_QIANKUN_NAME
   const container = createContainer(devModule, appName)
@@ -43,7 +43,7 @@ const App: FC<AppProps> = ({ namespace = 'i18n', state = {} }) => {
             getPopupContainer={getPopupContainer}
           >
             <QiankunProvider state={state}>
-              <BrowserRouter basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/MES/I18n' : '/'}>
+              <BrowserRouter basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/oim/wms' : '/'}>
                 <AppShell>
                   <AppRoutes />
                 </AppShell>

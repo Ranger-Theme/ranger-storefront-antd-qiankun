@@ -1,21 +1,19 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { loadMicroApp, type MicroApp } from '@ranger-theme/qiankun'
 
 let app: MicroApp | null = null
 
-const SEO = () => {
-  const containerRef = useRef<any>(null)
+const SRM = () => {
   const isProd: boolean = import.meta.env.PROD
 
   useEffect(() => {
     app = loadMicroApp(
       {
-        name: 'ocloud__seo',
-        entry: isProd ? '/ocloud/seo/' : 'http://127.0.0.1:3003',
-        // container: '#ocloud__seo',
-        container: containerRef.current,
+        name: 'oim__srm',
+        entry: isProd ? '/oim/srm/' : 'http://127.0.0.1:3001',
+        container: '#oim__srm',
         props: {
-          namespace: 'seo'
+          namespace: 'srm'
         }
       },
       {
@@ -36,10 +34,10 @@ const SEO = () => {
   }, [])
 
   return (
-    <div id="ocloud__seo">
-      <div ref={containerRef} />
+    <div>
+      <div id="oim__srm" />
     </div>
   )
 }
 
-export default SEO
+export default SRM

@@ -18,18 +18,18 @@ export const routes: Routes[] = [
         children: []
       },
       {
-        path: '/MES/CMS/*',
-        component: lazy(() => import('@/pages/mes/cms')),
+        path: '/oim/srm/*',
+        component: lazy(() => import('@/pages/oim/srm')),
         children: []
       },
       {
-        path: '/MES/I18N/*',
-        component: lazy(() => import('@/pages/mes/i18n')),
+        path: '/oim/qms/*',
+        component: lazy(() => import('@/pages/oim/qms')),
         children: []
       },
       {
-        path: '/MES/SEO/*',
-        component: lazy(() => import('@/pages/mes/seo')),
+        path: '/oim/wms/*',
+        component: lazy(() => import('@/pages/oim/wms')),
         children: []
       },
       {

@@ -3,17 +3,17 @@ import { loadMicroApp, type MicroApp } from '@ranger-theme/qiankun'
 
 let app: MicroApp | null = null
 
-const CMS = () => {
+const QMS = () => {
   const isProd: boolean = import.meta.env.PROD
 
   useEffect(() => {
     app = loadMicroApp(
       {
-        name: 'ocloud__cms',
-        entry: isProd ? '/ocloud/cms/' : 'http://127.0.0.1:3001',
-        container: '#ocloud__cms',
+        name: 'oim__qms',
+        entry: isProd ? '/oim/qms/' : 'http://127.0.0.1:3002',
+        container: '#oim__qms',
         props: {
-          namespace: 'cms'
+          namespace: 'qms'
         }
       },
       {
@@ -35,9 +35,9 @@ const CMS = () => {
 
   return (
     <div>
-      <div id="ocloud__cms" />
+      <div id="oim__qms" />
     </div>
   )
 }
 
-export default CMS
+export default QMS

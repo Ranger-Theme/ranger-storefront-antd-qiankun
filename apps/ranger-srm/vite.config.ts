@@ -20,8 +20,8 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
     mode,
     pkg,
     https: false,
-    port: 3002,
-    htmlId: 'i18n',
+    port: 3001,
+    htmlId: 'srm',
     outDir: 'build',
     isMicroApp: useDevMode,
     entry: path.resolve(__dirname, 'bootstrap/main.tsx'),
@@ -38,7 +38,6 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
     }
   })
   const { plugins, server, ...restConfig } = defaultConfig
-
   if (useDevMode)
     plugins?.push(
       qiankun(appName, {
@@ -48,7 +47,7 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
 
   return defineConfig({
     ...restConfig,
-    base: useDevMode ? '/ocloud/i18n' : './',
+    base: useDevMode ? '/oim/srm' : './',
     define: {
       'import.meta.env.REACT_APP_QIANKUN_NAME': JSON.stringify(appName),
       'import.meta.env.REACT_APP_DEV_MODULE': JSON.stringify(useDevMode)

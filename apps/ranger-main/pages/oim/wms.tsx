@@ -1,19 +1,20 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { loadMicroApp, type MicroApp } from '@ranger-theme/qiankun'
 
 let app: MicroApp | null = null
 
-const I18n = () => {
+const SEO = () => {
+  const containerRef = useRef<any>(null)
   const isProd: boolean = import.meta.env.PROD
 
   useEffect(() => {
     app = loadMicroApp(
       {
-        name: 'ocloud__i18n',
-        entry: isProd ? '/ocloud/i18n/' : 'http://127.0.0.1:3002',
-        container: '#ocloud__i18n',
+        name: 'oim__wms',
+        entry: isProd ? '/oim/wms/' : 'http://127.0.0.1:3003',
+        container: containerRef.current,
         props: {
-          namespace: 'i18n'
+          namespace: 'wms'
         }
       },
       {
@@ -34,10 +35,10 @@ const I18n = () => {
   }, [])
 
   return (
-    <div>
-      <div id="ocloud__i18n" />
+    <div id="oim__wms">
+      <div ref={containerRef} />
     </div>
   )
 }
 
-export default I18n
+export default SEO

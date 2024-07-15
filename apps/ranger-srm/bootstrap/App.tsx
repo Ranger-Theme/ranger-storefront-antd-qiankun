@@ -43,7 +43,7 @@ const App: FC<AppProps> = ({ namespace = 'cms', state = {} }) => {
             getPopupContainer={getPopupContainer}
           >
             <QiankunProvider state={state}>
-              <BrowserRouter basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/MES/CMS' : '/'}>
+              <BrowserRouter basename={qiankunWindow.__POWERED_BY_QIANKUN__ ? '/oim/srm' : '/'}>
                 <AppShell>
                   <AppRoutes />
                 </AppShell>

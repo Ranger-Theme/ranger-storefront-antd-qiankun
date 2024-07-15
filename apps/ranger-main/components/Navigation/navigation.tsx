@@ -43,33 +43,33 @@ const Navigation = () => {
 
   const oimItems: MenuProps['items'] = [
     {
-      key: '/MES/CMS',
+      key: '/oim/srm',
       label: (
-        <Link to="/MES/CMS">
+        <Link to="/oim/srm">
           <span>SRM</span>
         </Link>
       )
     },
     {
-      key: '/MES/I18N',
+      key: '/oim/qms',
       label: (
-        <Link to="/MES/I18N">
-          <span>WMS</span>
-        </Link>
-      )
-    },
-    {
-      key: '/MES/SEO',
-      label: (
-        <Link to="/MES/SEO">
+        <Link to="/oim/qms">
           <span>QMS</span>
         </Link>
       )
     },
     {
-      key: '/MES/QMS',
+      key: '/oim/wms',
       label: (
-        <Link to="/MES/QMS">
+        <Link to="/oim/wms">
+          <span>WMS</span>
+        </Link>
+      )
+    },
+    {
+      key: '/oim/mes',
+      label: (
+        <Link to="/oim/mes">
           <span>MES</span>
         </Link>
       )

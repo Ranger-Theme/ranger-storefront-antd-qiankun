@@ -5,10 +5,10 @@ import 'antd/dist/reset.css'
 import { qiankunActions } from '@/actions'
 import App from './App'
 
-const renderApp = (container?: HTMLElement, namespace?: string, state?: any) => {
+const renderApp = (namespace: string = 'qms', container?: HTMLElement, state?: any) => {
   // 如果是在主应用的环境下就挂载主应用的节点，否则挂载到本地
   const rootElement: HTMLElement = (
-    container ? container.querySelector('#i18n') : document.getElementById('i18n')
+    container ? container.querySelector(`#${namespace}`) : document.getElementById(namespace)
   ) as HTMLElement
   createRoot(rootElement).render(<App namespace={namespace} state={state} />)
 }
@@ -16,15 +16,15 @@ const renderApp = (container?: HTMLElement, namespace?: string, state?: any) => 
 const initQianKun = () => {
   renderWithQiankun({
     mount(props: any) {
-      console.info('I18n子应用开始挂载......')
-      const { container, namespace, state } = props
-      renderApp(container, namespace, state)
+      console.info('QMS子应用开始挂载......')
+      const { namespace, container, state } = props
+      renderApp(namespace, container, state)
       qiankunActions.setActions(props)
     },
     bootstrap() {},
     update() {},
     unmount() {
-      console.info('I18n子应用已经卸载......')
+      console.info('QMS子应用已经卸载......')
     }
   })
 }

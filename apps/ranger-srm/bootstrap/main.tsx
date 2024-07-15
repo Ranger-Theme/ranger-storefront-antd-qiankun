@@ -5,7 +5,8 @@ import 'antd/dist/reset.css'
 import { qiankunActions } from '@/actions'
 import App from './App'
 
-const renderApp = (namespace: string = 'seo', container?: HTMLElement, state?: any) => {
+const renderApp = (namespace: string = 'srm', container?: HTMLElement, state?: any) => {
+  // 如果是在主应用的环境下就挂载主应用的节点，否则挂载到本地
   const rootElement: HTMLElement = (
     container ? container.querySelector(`#${namespace}`) : document.getElementById(namespace)
   ) as HTMLElement
@@ -15,15 +16,15 @@ const renderApp = (namespace: string = 'seo', container?: HTMLElement, state?: a
 const initQianKun = () => {
   renderWithQiankun({
     mount(props: any) {
-      console.info('SEO子应用开始挂载......')
-      const { container, namespace, state } = props
+      console.info('SRM子应用开始挂载......')
+      const { namespace, container, state } = props
       renderApp(namespace, container, state)
       qiankunActions.setActions(props)
     },
     bootstrap() {},
     update() {},
     unmount() {
-      console.info('SEO子应用已经卸载......')
+      console.info('SRM子应用已经卸载......')
     }
   })
 }

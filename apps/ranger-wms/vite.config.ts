@@ -21,7 +21,7 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
     pkg,
     https: false,
     port: 3003,
-    htmlId: 'seo',
+    htmlId: 'wms',
     outDir: 'build',
     isMicroApp: useDevMode,
     entry: path.resolve(__dirname, 'bootstrap/main.tsx'),
@@ -48,7 +48,7 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
 
   return defineConfig({
     ...restConfig,
-    base: useDevMode ? '/ocloud/seo' : './',
+    base: useDevMode ? '/oim/wms' : './',
     define: {
       'import.meta.env.REACT_APP_QIANKUN_NAME': JSON.stringify(appName),
       'import.meta.env.REACT_APP_DEV_MODULE': JSON.stringify(useDevMode)
