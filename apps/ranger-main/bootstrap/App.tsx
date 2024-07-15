@@ -15,10 +15,6 @@ const App = () => {
             <AppShell>
               <AppRoutes />
             </AppShell>
-            <div className="qiankun">
-              <div id="ocloud__cms" />
-              <div id="ocloud__i18n" />
-            </div>
           </BrowserRouter>
         </ConfigProvider>
       </ThemeProvider>

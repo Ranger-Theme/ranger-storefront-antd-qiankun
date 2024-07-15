@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { Button, Layout, Watermark } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
 
@@ -8,7 +8,6 @@ import Header from '@/components/Header'
 import { StyledMain, StyledLogo } from './styled'
 
 const PageLayout = () => {
-  const { pathname } = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(initialState.collapsed)
 
   const handleOnClick = () => {
@@ -26,10 +25,6 @@ const PageLayout = () => {
       qiankunActions.offGlobalStateChange()
     }
   }, [])
-
-  useEffect(() => {
-    console.info('pathname: ', pathname)
-  }, [pathname])
 
   return (
     <Watermark content="ocloud主应用" rotate={-22} gap={[100, 100]} zIndex={10}>

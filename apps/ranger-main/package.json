@@ -19,7 +19,7 @@
     "@ranger-theme/admin": "workspace:^",
     "@ranger-theme/hooks": "^0.3.1",
     "@ranger-theme/qiankun": "workspace:^",
-    "@ranger-theme/vite-config": "^0.5.1",
+    "@ranger-theme/vite-config": "^0.6.0",
     "@reduxjs/toolkit": "^2.2.6",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "antd": "^5.19.1",

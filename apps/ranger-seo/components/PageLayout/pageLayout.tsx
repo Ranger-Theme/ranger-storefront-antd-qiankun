@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { Button, Layout, Menu, Watermark } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
@@ -6,8 +6,9 @@ import { useQiankunContext } from '@ranger-theme/qiankun'
 import type { MenuProps } from 'antd'
 
 import { qiankunActions } from '@/actions'
-import Header from '@/components/Header'
 import { StyledMain, StyledLogo } from './styled'
+
+const Header = lazy(() => import('@/components/Header'))
 
 const PageLayout = () => {
   const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
