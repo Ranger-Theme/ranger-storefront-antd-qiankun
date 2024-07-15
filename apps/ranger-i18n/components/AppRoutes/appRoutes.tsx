@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { ErrorBoundary, LazyComponent } from '@ranger-theme/admin'
 
-import ErrorBoundary from '@/components/ErrorBoundary'
 import { routes } from '@/routes'
 
 const rotuerViews = (routerItems: any[]) => {
@@ -9,12 +9,12 @@ const rotuerViews = (routerItems: any[]) => {
     <>
       {routerItems.map(({ path, component: Component, children, redirect }) => {
         return children && children.length ? (
-          <Route path={path} key={path} element={<Component />}>
+          <Route path={path} key={path} element={<LazyComponent element={<Component />} />}>
             {rotuerViews(children)}
             <Route path={path} element={<Navigate to={redirect || children[0].path} />} />
           </Route>
         ) : (
-          <Route key={path} path={path} element={<Component />} />
+          <Route key={path} path={path} element={<LazyComponent element={<Component />} />} />
         )
       })}
     </>

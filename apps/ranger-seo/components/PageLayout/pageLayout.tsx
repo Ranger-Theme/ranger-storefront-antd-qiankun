@@ -93,37 +93,37 @@ const PageLayout = () => {
       ]
     },
     {
-      key: '/setting/complaint',
+      key: '/purchase/complaint',
       label: <span>出库管理</span>,
       children: [
         {
-          key: '/setting/complaint/records',
+          key: '/purchase/complaint/records',
           label: (
-            <Link to="/setting/complaint/records">
+            <Link to="/purchase/complaint/records">
               <span>待发货列表</span>
             </Link>
           )
         },
         {
-          key: '/setting/complaint/handles',
+          key: '/purchase/complaint/date',
           label: (
-            <Link to="/setting/complaint/handles">
+            <Link to="/purchase/complaint/date">
               <span>出库日期明细</span>
             </Link>
           )
         },
         {
-          key: '/setting/complaint/handles',
+          key: '/purchase/complaint/handles',
           label: (
-            <Link to="/setting/complaint/handles">
+            <Link to="/purchase/complaint/handles">
               <span>任务列表</span>
             </Link>
           )
         },
         {
-          key: '/setting/complaint/handles',
+          key: '/purchase/complaint/list',
           label: (
-            <Link to="/setting/complaint/handles">
+            <Link to="/purchase/complaint/list">
               <span>退货列表</span>
             </Link>
           )
@@ -131,13 +131,13 @@ const PageLayout = () => {
       ]
     },
     {
-      key: '/setting/property',
+      key: '/property',
       label: <span>物权管理</span>,
       children: [
         {
-          key: '/setting/property',
+          key: '/property/list',
           label: (
-            <Link to="/setting/property">
+            <Link to="/property/list">
               <span>物权列表</span>
             </Link>
           )

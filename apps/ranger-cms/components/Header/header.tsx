@@ -1,11 +1,13 @@
 import { Button, Dropdown, Space } from 'antd'
 import { AiOutlineDown } from 'react-icons/ai'
 import { MdGTranslate } from 'react-icons/md'
+import { IoMdTime } from 'react-icons/io'
+import { TimeDown } from '@ranger-theme/admin'
 import type { FC, PropsWithChildren } from 'react'
 import type { MenuProps } from 'antd'
 
 import { useHeader } from '@/hooks/Header'
-import { StyledHeader, StyledNavigation, StyledTools } from './styled'
+import { StyledHeader, StyledNavigation, StyledTools, StyledDate } from './styled'
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
   const { handleLogout } = useHeader()
@@ -29,6 +31,10 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
     <StyledHeader>
       <StyledNavigation>{children}</StyledNavigation>
       <StyledTools>
+        <StyledDate>
+          <IoMdTime size={22} />
+          <TimeDown />
+        </StyledDate>
         <Button type="text">
           <MdGTranslate size={22} />
           <span>EN</span>

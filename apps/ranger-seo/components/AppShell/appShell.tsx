@@ -1,3 +1,4 @@
+import { App } from 'antd'
 import type { FC, PropsWithChildren } from 'react'
 
 import { useAppShell } from '@/hooks/AppShell'
@@ -5,7 +6,7 @@ import { useAppShell } from '@/hooks/AppShell'
 const AppShell: FC<PropsWithChildren> = ({ children }) => {
   useAppShell()
 
-  return <div>{children}</div>
+  return <App>{children}</App>
 }
 
 export default AppShell

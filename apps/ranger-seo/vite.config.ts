@@ -39,6 +39,13 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
   })
   const { plugins, server, ...restConfig } = defaultConfig
 
+  if (useDevMode)
+    plugins?.push(
+      qiankun(appName, {
+        useDevMode: true
+      })
+    )
+
   return defineConfig({
     ...restConfig,
     base: useDevMode ? '/ocloud/seo' : './',
@@ -58,12 +65,7 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
         'Access-Control-Allow-Origin': '*'
       }
     },
-    plugins: [
-      ...(plugins || []),
-      qiankun(appName, {
-        useDevMode: true
-      })
-    ]
+    plugins: [...(plugins || [])]
   })
 }
 

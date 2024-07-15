@@ -25,3 +25,11 @@ export const StyledTools = styled.div`
     cursor: pointer;
   }
 `
+
+export const StyledDate = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 5px;
+  justify-content: center;
+  align-items: center;
+`

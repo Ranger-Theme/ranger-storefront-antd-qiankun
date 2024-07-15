@@ -23,7 +23,10 @@
     "clean": "rm -rf dist lib"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@ranger-theme/utils": "^0.4.0",
+    "dayjs": "^1.11.11",
     "tsup": "^8.0.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import NotFound from '@/components/NotFound'
+import NotFound from '../NotFound'
 
 interface ErrorBoundaryProps {
   children?: any

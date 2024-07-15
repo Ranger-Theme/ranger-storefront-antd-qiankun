@@ -13,6 +13,6 @@ export default defineConfig((options: Options) => {
     sourcemap: !!options.watch,
     minify: !options.watch,
     format: ['esm', 'cjs'],
-    external: []
+    external: ['react']
   }
 })

@@ -1,4 +1,4 @@
-import NotFound from '@/components/NotFound'
+import { NotFound } from '@ranger-theme/admin'
 
 const NoPage = () => {
   return <NotFound />
