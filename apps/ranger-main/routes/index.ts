@@ -31,17 +31,17 @@ export const routes: Routes[] = [
         path: '/MES/SEO/*',
         component: lazy(() => import('@/pages/mes/seo')),
         children: []
+      },
+      {
+        path: '*',
+        component: lazy(() => import('@/pages/not-found')),
+        children: []
       }
     ]
   },
   {
     path: '/login',
     component: lazy(() => import('@/pages/login')),
-    children: []
-  },
-  {
-    path: '*',
-    component: lazy(() => import('@/pages/not-found')),
     children: []
   }
 ]

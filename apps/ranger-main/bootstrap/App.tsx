@@ -10,7 +10,7 @@ const App = () => {
   return (
     <StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>
       <ThemeProvider theme={{}}>
-        <ConfigProvider>
+        <ConfigProvider prefixCls="ocloud" iconPrefixCls="ocloud">
           <BrowserRouter>
             <AppShell>
               <AppRoutes />
@@ -18,7 +18,6 @@ const App = () => {
             <div className="qiankun">
               <div id="ocloud__cms" />
               <div id="ocloud__i18n" />
-              <div id="ocloud__seo" />
             </div>
           </BrowserRouter>
         </ConfigProvider>

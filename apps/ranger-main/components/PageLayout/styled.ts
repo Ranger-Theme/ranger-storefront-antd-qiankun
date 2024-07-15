@@ -4,6 +4,7 @@ export const StyledMain = styled.div`
   width: 100%;
   height: calc(100vh - 64px);
   background-color: #fff;
+  z-index: 50;
 `
 
 export const StyledLogo = styled.div<{

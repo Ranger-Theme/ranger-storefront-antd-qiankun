@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import { Button, Layout } from 'antd'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Button, Layout, Watermark } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
 
 import { initialState, qiankunActions } from '@/actions'
@@ -8,6 +8,7 @@ import Header from '@/components/Header'
 import { StyledMain, StyledLogo } from './styled'
 
 const PageLayout = () => {
+  const { pathname } = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(initialState.collapsed)
 
   const handleOnClick = () => {
@@ -26,31 +27,37 @@ const PageLayout = () => {
     }
   }, [])
 
+  useEffect(() => {
+    console.info('pathname: ', pathname)
+  }, [pathname])
+
   return (
-    <Layout>
-      <Layout.Header style={{ padding: 0, background: '#fff' }}>
-        <Header>
-          <StyledLogo collapsed={collapsed}>
-            <Link to="/">
-              <span className="logo" />
-              <span>Qiankun</span>
-            </Link>
-          </StyledLogo>
-          <Button
-            type="text"
-            icon={collapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
-            onClick={handleOnClick}
-            style={{
-              width: 64,
-              height: 64
-            }}
-          />
-        </Header>
-      </Layout.Header>
-      <StyledMain>
-        <Outlet />
-      </StyledMain>
-    </Layout>
+    <Watermark content="ocloud主应用" rotate={-22} gap={[100, 100]} zIndex={10}>
+      <Layout>
+        <Layout.Header style={{ padding: 0, background: 'cornflowerblue' }}>
+          <Header>
+            <StyledLogo collapsed={collapsed}>
+              <Link to="/">
+                <span className="logo" />
+                <span>Qiankun</span>
+              </Link>
+            </StyledLogo>
+            <Button
+              type="text"
+              icon={collapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
+              onClick={handleOnClick}
+              style={{
+                width: 64,
+                height: 64
+              }}
+            />
+          </Header>
+        </Layout.Header>
+        <StyledMain>
+          <Outlet />
+        </StyledMain>
+      </Layout>
+    </Watermark>
   )
 }
 

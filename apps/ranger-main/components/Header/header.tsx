@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { Button, Dropdown, Space } from 'antd'
 import { AiOutlineDown } from 'react-icons/ai'
 import { MdGTranslate } from 'react-icons/md'
@@ -6,7 +5,8 @@ import type { FC, PropsWithChildren } from 'react'
 import type { MenuProps } from 'antd'
 
 import { useHeader } from '@/hooks/Header'
-import { StyledHeader, StyledNavigation, StyledMenus, StyledTools } from './styled'
+import Navigation from '@/components/Navigation'
+import { StyledHeader, StyledNavigation, StyledTools } from './styled'
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
   const { handleLogout } = useHeader()
@@ -30,23 +30,7 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
     <StyledHeader>
       <StyledNavigation>
         {children}
-        <StyledMenus>
-          <li>
-            <Link to="/MES/CMS">
-              <span>QIM - CMS</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/MES/I18N">
-              <span>QIM - I18N</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/MES/SEO">
-              <span>QIM - SEO</span>
-            </Link>
-          </li>
-        </StyledMenus>
+        <Navigation />
       </StyledNavigation>
       <StyledTools>
         <Button type="text">

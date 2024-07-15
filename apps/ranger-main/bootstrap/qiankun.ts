@@ -24,15 +24,15 @@ export const bootstrap = async () => {
       props: {
         namespace: 'i18n'
       }
-    },
-    {
-      name: 'ocloud__seo',
-      entry: isProd ? '/ocloud/seo/' : 'http://127.0.0.1:3003',
-      container: '#ocloud__seo',
-      activeRule: '/MES/SEO',
-      props: {
-        namespace: 'seo'
-      }
     }
+    // {
+    //   name: 'ocloud__seo',
+    //   entry: isProd ? '/ocloud/seo/' : 'http://127.0.0.1:3003',
+    //   container: '#ocloud__seo',
+    //   activeRule: '/MES/SEO',
+    //   props: {
+    //     namespace: 'seo'
+    //   }
+    // }
   ])
 }

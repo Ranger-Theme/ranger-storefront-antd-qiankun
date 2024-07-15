@@ -1,8 +1,11 @@
+import { StyledHome } from './styled'
+
 const HomePage = () => {
   return (
-    <div>
-      <p>Home Page</p>
-    </div>
+    <StyledHome>
+      <h2>Home Page</h2>
+      <p>Qiankun Micro Frontend</p>
+    </StyledHome>
   )
 }
 
