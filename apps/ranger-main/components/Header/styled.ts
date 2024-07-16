@@ -24,4 +24,18 @@ export const StyledTools = styled.div`
   .label {
     cursor: pointer;
   }
+
+  button,
+  .label {
+    color: #fff;
+  }
+`
+
+export const StyledDate = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 `
