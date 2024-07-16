@@ -34,9 +34,13 @@
     "@ranger-theme/ts-config": "^0.1.0",
     "@types/node": "^20.10.6",
     "@types/react": "^18.3.3",
-    "react": "^18.2.0"
+    "antd": "^5.19.1",
+    "react": "^18.2.0",
+    "react-router-dom": "^6.24.1"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "antd": "^5.19.1",
+    "react": "^18.2.0",
+    "react-router-dom": "^6.24.1"
   }
 }

@@ -23,7 +23,7 @@ const PageLayout = () => {
   }, [])
 
   return (
-    <Watermark content="SRM微应用" rotate={-22} gap={[100, 100]} zIndex={30}>
+    <Watermark content="srm微应用" rotate={-22} gap={[100, 100]} zIndex={30}>
       <Layout>
         {!devModule && (
           <Layout.Header style={{ padding: 0, background: '#fff' }}>
