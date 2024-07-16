@@ -1,185 +1,128 @@
-import { Link } from 'react-router-dom'
-import { AiOutlineDown } from 'react-icons/ai'
-import type { MenuProps } from 'antd'
-import { Dropdown, Space } from 'antd'
+import { useEffect, useState } from 'react'
 
+import MenuItem from './MenuItem'
 import { StyledMenus } from './styled'
 
+interface MenuItem {
+  key: string
+  label: string
+  url?: string
+  children?: MenuItem[]
+}
+
 const Navigation = () => {
-  const omsItems: MenuProps['items'] = [
+  const [activeKey, setActiveKey] = useState<string>('')
+
+  const menuList: Array<MenuItem> = [
     {
-      key: '0',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>订单中心</span>
-        </Link>
-      )
+      key: '/oms',
+      label: 'OMS',
+      children: [
+        {
+          key: '/oms/order',
+          label: '订单中心'
+        },
+        {
+          key: '/oms/logistics',
+          label: '物流中心'
+        },
+        {
+          key: '/oms/stock',
+          label: '库存中心'
+        },
+        {
+          key: '/oms/products',
+          label: '商品中心'
+        }
+      ]
     },
     {
-      key: '1',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>物流中心</span>
-        </Link>
-      )
+      key: 'oim',
+      label: 'OIM',
+      children: [
+        {
+          key: '/oim/srm',
+          label: 'SRM'
+        },
+        {
+          key: '/oim/qms',
+          label: 'QMS'
+        },
+        {
+          key: '/oim/wms',
+          label: 'WMS'
+        },
+        {
+          key: '/oim/mes',
+          label: 'MES'
+        }
+      ]
     },
     {
-      key: '3',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>库存中心</span>
-        </Link>
-      )
+      key: '/ops',
+      label: 'OPS',
+      children: [
+        {
+          key: '/ops/sys',
+          label: '奋斗系统'
+        },
+        {
+          key: '/ops/combat',
+          label: '战功系统'
+        },
+        {
+          key: '/ops/taxi',
+          label: '打车系统'
+        }
+      ]
     },
     {
-      key: '4',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>商品中心</span>
-        </Link>
-      )
+      key: '/obw',
+      label: 'OBW',
+      children: [
+        {
+          key: '/obw/website',
+          label: '官网'
+        },
+        {
+          key: '/obw/admin',
+          label: '官网后台'
+        },
+        {
+          key: '/obw/shop',
+          label: '商城'
+        },
+        {
+          key: '/obw/shop-admin',
+          label: '商城后台'
+        }
+      ]
     }
   ]
 
-  const oimItems: MenuProps['items'] = [
-    {
-      key: '/oim/srm',
-      label: (
-        <Link to="/oim/srm">
-          <span>SRM</span>
-        </Link>
-      )
-    },
-    {
-      key: '/oim/qms',
-      label: (
-        <Link to="/oim/qms">
-          <span>QMS</span>
-        </Link>
-      )
-    },
-    {
-      key: '/oim/wms',
-      label: (
-        <Link to="/oim/wms">
-          <span>WMS</span>
-        </Link>
-      )
-    },
-    {
-      key: '/oim/mes',
-      label: (
-        <Link to="/oim/mes">
-          <span>MES</span>
-        </Link>
-      )
-    }
-  ]
+  const handleOnSetKey = (key: string) => {
+    setActiveKey(key)
+  }
 
-  const opsItems: MenuProps['items'] = [
-    {
-      key: '0',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>奋斗系统</span>
-        </Link>
-      )
-    },
-    {
-      key: '1',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>战功系统</span>
-        </Link>
-      )
-    },
-    {
-      key: '3',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>点餐系统</span>
-        </Link>
-      )
-    },
-    {
-      key: '4',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>打车系统</span>
-        </Link>
-      )
+  useEffect(() => {
+    const handleOnKeyup = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        setActiveKey('')
+      }
     }
-  ]
 
-  const obwItems: MenuProps['items'] = [
-    {
-      key: '0',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>官网</span>
-        </Link>
-      )
-    },
-    {
-      key: '1',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>官网后台</span>
-        </Link>
-      )
-    },
-    {
-      key: '3',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>商城</span>
-        </Link>
-      )
-    },
-    {
-      key: '4',
-      label: (
-        <Link to="/MES/ORDER">
-          <span>商城后台</span>
-        </Link>
-      )
+    document.addEventListener('keyup', handleOnKeyup, false)
+    return () => {
+      document.removeEventListener('keyup', handleOnKeyup, false)
     }
-  ]
+  }, [])
 
   return (
     <StyledMenus>
-      <li>
-        <Dropdown menu={{ items: omsItems }} trigger={['click']}>
-          <Space>
-            <span>OMS</span>
-            <AiOutlineDown />
-          </Space>
-        </Dropdown>
-      </li>
-      <li>
-        <Dropdown menu={{ items: oimItems }} trigger={['click']}>
-          <Space>
-            <span>OIM</span>
-            <AiOutlineDown />
-          </Space>
-        </Dropdown>
-      </li>
-      <li>
-        <Dropdown menu={{ items: opsItems }} trigger={['click']}>
-          <Space>
-            <span>OPS</span>
-            <AiOutlineDown />
-          </Space>
-        </Dropdown>
-      </li>
-      <li>
-        <Dropdown menu={{ items: obwItems }} trigger={['click']}>
-          <Space>
-            <span>OBW</span>
-            <AiOutlineDown />
-          </Space>
-        </Dropdown>
-      </li>
+      {menuList.map((menu) => {
+        const { key } = menu
+        return <MenuItem key={key} menu={menu} activeKey={activeKey} onSetKey={handleOnSetKey} />
+      })}
     </StyledMenus>
   )
 }
