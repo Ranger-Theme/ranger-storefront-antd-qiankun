@@ -14,6 +14,7 @@
     "clean": "pnpm run clean:turbo && pnpm run clean:node_modules",
     "clean:turbo": "find . -name '.turbo' -type d -prune -exec rm -rf '{}' +",
     "clean:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "clean:tsbuildinfo": "find . -name 'tsconfig.tsbuildinfo' -type d -prune -exec rm -rf '{}' +",
     "husky:prepare": "husky install"
   },
   "dependencies": {

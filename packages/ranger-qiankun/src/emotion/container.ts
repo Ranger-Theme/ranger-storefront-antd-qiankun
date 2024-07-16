@@ -1,6 +1,9 @@
 export const createContainer = (devModule: boolean, name: string) => {
   if (!devModule) return document.head
-  const qiankunShadowDom: any = document.querySelector(`div[data-name="${name}"]`)?.shadowRoot
+
+  const qiankunElement = document.querySelector(`div[data-name="${name}"]`)
+  if (!qiankunElement) return document.head
+  const qiankunShadowDom: any = qiankunElement?.shadowRoot
   const hasQiankun: boolean = qiankunShadowDom.querySelector('qiankun-head')
 
   if (!hasQiankun) {

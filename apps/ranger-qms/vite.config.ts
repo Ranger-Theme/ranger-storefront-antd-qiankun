@@ -1,13 +1,13 @@
 import path from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
 import qiankun from 'vite-plugin-qiankun'
-import externalGlobals from 'rollup-plugin-external-globals'
+// import externalGlobals from 'rollup-plugin-external-globals'
 import { baseConfig } from '@ranger-theme/vite-config'
 import type { ConfigEnv } from 'vite'
 
 import pkg from './package.json'
 
-const externalPlugin: any = externalGlobals
+// const externalPlugin: any = externalGlobals
 
 const viteConfig: any = ({ mode }: ConfigEnv) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd(), 'REACT_') }
@@ -24,18 +24,18 @@ const viteConfig: any = ({ mode }: ConfigEnv) => {
     htmlId: 'qms',
     outDir: 'build',
     isMicroApp: useDevMode,
-    entry: path.resolve(__dirname, 'bootstrap/main.tsx'),
-    buildOptions: {
-      rollupOptions: {
-        external: ['react', 'react-dom'],
-        plugins: [
-          externalPlugin({
-            react: 'React',
-            'react-dom': 'ReactDOM'
-          })
-        ]
-      }
-    }
+    entry: path.resolve(__dirname, 'bootstrap/main.tsx')
+    // buildOptions: {
+    //   rollupOptions: {
+    //     external: ['react', 'react-dom'],
+    //     plugins: [
+    //       externalPlugin({
+    //         react: 'React',
+    //         'react-dom': 'ReactDOM'
+    //       })
+    //     ]
+    //   }
+    // }
   })
   const { plugins, server, ...restConfig } = defaultConfig
 
