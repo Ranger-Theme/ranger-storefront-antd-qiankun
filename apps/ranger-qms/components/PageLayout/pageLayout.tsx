@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { Button, Layout, Menu, Watermark } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold, AiOutlineUser } from 'react-icons/ai'
+import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 import { useQiankunContext } from '@ranger-theme/qiankun'
 
 import { qiankunActions } from '@/actions'
@@ -12,20 +13,23 @@ const PageLayout = () => {
   const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
   const context = useQiankunContext()
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const hideHeader = devModule && qiankunWindow.__POWERED_BY_QIANKUN__
   console.info(context)
 
   useEffect(() => {
-    qiankunActions.onGlobalStateChange((state: any, preveState: any) => {
-      console.info('微应用观察者: state改变前的值为 ', preveState)
-      console.info('微应用观察者: state改变后的值为 ', state)
-      setCollapsed(state.collapsed)
-    })
+    if (qiankunWindow.__POWERED_BY_QIANKUN__) {
+      qiankunActions.onGlobalStateChange((state: any, preveState: any) => {
+        console.info('微应用观察者: state改变前的值为 ', preveState)
+        console.info('微应用观察者: state改变后的值为 ', state)
+        setCollapsed(state.collapsed)
+      })
+    }
   }, [])
 
   return (
     <Watermark content="qms微应用" rotate={-22} gap={[100, 100]} zIndex={30}>
       <Layout>
-        {!devModule && (
+        {!hideHeader && (
           <Layout.Header style={{ padding: 0, background: '#fff' }}>
             <Header>
               <StyledLogo collapsed={collapsed}>

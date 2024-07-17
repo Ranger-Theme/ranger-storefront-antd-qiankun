@@ -15,6 +15,7 @@ const PageLayout = () => {
   const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
   const context = useQiankunContext()
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const hideHeader = devModule && qiankunWindow.__POWERED_BY_QIANKUN__
   console.info(context)
 
   const sideMenu: MenuProps['items'] = [
@@ -181,7 +182,7 @@ const PageLayout = () => {
   return (
     <Watermark content="wms微应用" rotate={-22} gap={[100, 100]} zIndex={30}>
       <Layout>
-        {!devModule && (
+        {!hideHeader && (
           <Layout.Header style={{ padding: 0, background: '#fff' }}>
             <Header>
               <StyledLogo collapsed={collapsed}>
