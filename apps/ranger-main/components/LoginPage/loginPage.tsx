@@ -11,7 +11,7 @@ const LoginPage = () => {
     <StyledLoginPage>
       <Form onFinish={handleFormSubmit}>
         <Spin spinning={loading}>
-          <StyledTitle>Ocloud系统</StyledTitle>
+          <StyledTitle>ocloud系统</StyledTitle>
           <Form.Item name="name" rules={[{ required: true }]}>
             <Input placeholder="请输入用户名" />
           </Form.Item>

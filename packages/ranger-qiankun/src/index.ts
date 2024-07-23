@@ -1,4 +1,5 @@
 export { createCache, createContainer } from './emotion'
 export { QiankunProvider, useQiankunContext } from './provider'
 export type { QiankunProviderProps } from './provider'
+export { BrowserPersistence } from './storage'
 export * from 'qiankun'

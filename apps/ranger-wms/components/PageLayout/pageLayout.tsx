@@ -3,28 +3,30 @@ import { Link, Outlet } from 'react-router-dom'
 import { Button, Layout, Menu, Watermark } from 'antd'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai'
 import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
-import { useQiankunContext } from '@ranger-theme/qiankun'
+import { BrowserPersistence } from '@ranger-theme/qiankun'
 import type { MenuProps } from 'antd'
 
 import { qiankunActions } from '@/actions'
+import TabMenus from '@/components/TabMenus'
 import { StyledMain, StyledLogo } from './styled'
 
 const Header = lazy(() => import('@/components/Header'))
 
 const PageLayout = () => {
   const devModule: boolean = import.meta.env.REACT_APP_DEV_MODULE
-  const context = useQiankunContext()
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const hideHeader = devModule && qiankunWindow.__POWERED_BY_QIANKUN__
-  console.info(context)
+  const storage = new BrowserPersistence()
 
   const sideMenu: MenuProps['items'] = [
     {
       key: '/base',
+      title: '基础数据',
       label: <span>基础数据</span>,
       children: [
         {
           key: '/base/location',
+          title: '库存信息',
           label: (
             <Link to="/base/location">
               <span>库存信息</span>
@@ -33,6 +35,7 @@ const PageLayout = () => {
         },
         {
           key: '/stock/local',
+          title: '库存列表',
           label: (
             <Link to="/stock/local">
               <span>库存列表</span>
@@ -41,6 +44,7 @@ const PageLayout = () => {
         },
         {
           key: '/stock/inven',
+          title: '库存清单',
           label: (
             <Link to="/stock/inven">
               <span>库存清单</span>
@@ -169,6 +173,18 @@ const PageLayout = () => {
     }
   ]
 
+  const handleOnClick = ({ item, key }: any) => {
+    const base: string = '/oim/wms'
+    const value: any = { title: item.props.title, path: `${base}${key}` }
+    const values = storage.getItem('qiankunStorage') || []
+    const paths = values.map((params: any) => params.path)
+
+    if (!paths.includes(value.path)) {
+      values.push(value)
+      storage.setItem('qiankunStorage', values, 86400 * 1000)
+    }
+  }
+
   useEffect(() => {
     if (qiankunWindow.__POWERED_BY_QIANKUN__) {
       qiankunActions.onGlobalStateChange((state: any, preveState: any) => {
@@ -219,14 +235,16 @@ const PageLayout = () => {
               mode="inline"
               defaultSelectedKeys={['/setting/qualityPlan']}
               items={sideMenu}
+              onClick={handleOnClick}
             />
           </Layout.Sider>
           <Layout>
+            <TabMenus />
             <Layout.Content
               style={{
                 margin: 0,
                 padding: 0,
-                minHeight: 'calc(100% - 64px)',
+                minHeight: 'calc(100% - 64px - 38px)',
                 overflow: 'auto'
               }}
             >

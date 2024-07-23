@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 
 export const StyledMain = styled.div`
-  width: calc(100% - 30px);
-  height: calc(100% - 30px);
-  margin: 15px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  margin: 10px;
   padding: 20px;
   background-color: #fff;
   overflow-y: auto;

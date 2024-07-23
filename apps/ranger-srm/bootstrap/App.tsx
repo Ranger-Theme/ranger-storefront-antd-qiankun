@@ -10,6 +10,7 @@ import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 import { QiankunProvider, createCache, createContainer } from '@ranger-theme/qiankun'
 import type { FC } from 'react'
 
+import { theme } from '@/config/theme'
 import AppShell from '@/components/AppShell'
 import AppRoutes from '@/components/AppRoutes'
 
@@ -36,7 +37,7 @@ const App: FC<AppProps> = ({ namespace = 'cms', state = {} }) => {
         container={container}
         transformers={[legacyLogicalPropertiesTransformer]}
       >
-        <ThemeProvider theme={{}}>
+        <ThemeProvider theme={theme}>
           <ConfigProvider
             prefixCls={namespace}
             iconPrefixCls={namespace}
